@@ -762,3 +762,106 @@
     <a href="#codex" class="btn">Уголовный кодекс</a>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФМС РФ - Федеральная Миграционная Служба</title>
+    <style>
+        /* ... (предыдущие стили остаются без изменений) ... */
+
+        .procedure {
+            margin-top: 2rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1.5rem;
+        }
+
+        .procedure-step {
+            margin-bottom: 1.5rem;
+            counter-increment: step-counter;
+            position: relative;
+        }
+
+        .procedure-step h5::before {
+            content: counter(step-counter);
+            color: white;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- ... (предыдущий код до раздела rules остается без изменений) ... -->
+
+    <section id="rules" class="rules">
+        <div class="container">
+            <h2 class="section-title">Устав и правила ФМС РФ</h2>
+            <div class="rules-container">
+                <!-- ... (предыдущие разделы устава остаются) ... -->
+
+                <h4>6. Правила остановки и проверки документов</h4>
+                <div class="procedure">
+                    <div class="procedure-step">
+                        <h5>Основания для остановки</h5>
+                        <ul>
+                            <li>Нарушение миграционного законодательства</li>
+                            <li>Отсутствие регистрации по месту пребывания</li>
+                            <li>Подозрение в использовании поддельных документов</li>
+                            <li>Проведение плановых рейдов</li>
+                        </ul>
+                    </div>
+
+                    <div class="procedure-step">
+                        <h5>Порядок проверки документов</h5>
+                        <ol>
+                            <li>Представиться и назвать должность</li>
+                            <li>Вежливо попросить предъявить документы</li>
+                            <li>Проверить:
+                                <ul>
+                                    <li>Паспорт/удостоверение личности</li>
+                                    <li>Миграционную карту (для иностранцев)</li>
+                                    <li>Регистрацию/визу</li>
+                                    <li>Патент на работу (при наличии)</li>
+                                </ul>
+                            </li>
+                            <li>Сверить данные с базами</li>
+                        </ol>
+                    </div>
+
+                    <div class="procedure-step">
+                        <h5>Действия при нарушениях</h5>
+                        <ul>
+                            <li>Составить протокол об административном правонарушении</li>
+                            <li>При необходимости - доставить в отдел ФМС</li>
+                            <li>В случае нелегального пребывания - инициировать депортацию</li>
+                            <li>При подозрении на подделку документов - передать в МВД</li>
+                        </ul>
+                    </div>
+
+                    <div class="procedure-step">
+                        <h5>Обязательные требования</h5>
+                        <ul>
+                            <li>Соблюдать права граждан</li>
+                            <li>Не превышать должностные полномочия</li>
+                            <li>Фиксировать все действия на служебную камеру</li>
+                            <li>Сообщать о задержании в дежурную часть</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ... (остальные разделы устава) ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ... (остальной код остается без изменений) ... -->
+</body>
+</html>
