@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФМС РФ - Федеральная Миграционная Служба</title>
+    <style>
+        :root {
+            --primary-color: #0057b7; /* синий */
+            --secondary-color: #e4181c; /* красный */
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c1121c;
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .team {
+            background-color: var(--light-color);
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .member-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .member-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h3 {
+            margin: 0 0 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .member-info p {
+            margin: 0;
+            color: var(--dark-color);
+            opacity: 0.8;
+        }
+        
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 768px) {
+    .article {
+        padding-left: 1rem;
+    }
+    .chapter {
+        padding-bottom: 1rem;
+    }
+}
+@media print {
+    .penalty {
+        color: black;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Деятельность</a></li>
+                <li><a href="#team">Состав</a></li>
+                <li><a href="#rules">Устав</a></li>  <!-- Новая ссылка -->
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/60" alt="Логотип ФМС">
+                    <div class="logo-text">
+                        <h1>ФМС РФ</h1>
+                        <p>Федеральная Миграционная Служба</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#services">Деятельность</a></li>
+                        <li><a href="#team">Состав</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Обеспечиваем миграционный порядок</h2>
+            <p>Контроль документов, борьба с нелегальной миграцией, защита государственных интересов</p>
+            <a href="#contact" class="btn">Связаться с нами</a>
+            <a href="#codex" class="btn">Уголовный кодекс</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О Федеральной Миграционной Службе</h2>
+            <p>Федеральная Миграционная Служба (ФМС России) является федеральным органом исполнительной власти, осуществляющим функции по контролю, надзору и оказанию государственных услуг в сфере миграции.</p>
+            <p>Наша основная задача - обеспечение законности пребывания иностранных граждан на территории Российской Федерации, противодействие нелегальной миграции и защита государственных интересов.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Направления деятельности</h2>
+            <div class="services">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/400x300" alt="Проверка документов">
+                    <div class="service-content">
+                        <h3>Проверка документов</h3>
+                        <p>Осуществление плановых и внеплановых проверок документов у граждан и иностранных лиц на территории РФ.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/400x300" alt="Борьба с нелегалами">
+                    <div class="service-content">
+                        <h3>Борьба с нелегальной миграцией</h3>
+                        <p>Выявление, задержание и депортация лиц, незаконно находящихся на территории Российской Федерации.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/400x300" alt="Оформление документов">
+                    <div class="service-content">
+                        <h3>Оформление документов</h3>
+                        <p>Выдача виз, видов на жительство, разрешений на временное проживание и других миграционных документов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Руководство ФМС</h2>
+            <div class="team-members">
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Начальник УФМС">
+                    <div class="member-info">
+                        <h3>Джон Джонстон</h3>
+                        <p>Начальник УФМС</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Заместитель">
+                    <div class="member-info">
+                        <h3></h3>
+                        <p>Заместитель начальника</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Начальник отдела">
+                    <div class="member-info">
+                        <h3></h3>
+                        <p>Начальник отдела контроля</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Федеральная Миграционная Служба Российской Федерации</p>
+            <p>Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФМС РФ - Федеральная Миграционная Служба</title>
+    <style>
+        :root {
+            --primary-color: #0057b7;
+            --secondary-color: #e4181c;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        /* Общие стили */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        /* Стили для Уголовного кодекса */
+        .codex {
+            background-color: #f5f5f5;
+            padding: 3rem 0;
+        }
+        
+        .codex-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .chapter {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .article {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .penalty {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        /* Остальные стили из предыдущего кода */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        /* ... (вставьте все остальные стили из предыдущего кода) ... */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://via.placeholder.com/60" alt="Логотип ФМС">
+                    <div class="logo-text">
+                        <h1>ФМС РФ</h1>
+                        <p>Федеральная Миграционная Служба</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#services">Деятельность</a></li>
+                        <li><a href="#team">Состав</a></li>
+                        <li><a href="#rules">Устав</a></li>
+                        <li><a href="#codex">Уголовный кодекс</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основные разделы сайта -->
+    <section class="hero">
+        <!-- ... (герой-секция из предыдущего кода) ... -->
+    </section>
+
+    <section id="about" class="about">
+        <!-- ... (раздел "О нас" из предыдущего кода) ... -->
+    </section>
+
+    <!-- Добавляем новый раздел с Уголовным кодексом -->
+    <section id="codex" class="codex">
+        <div class="container">
+            <h2 class="section-title">Уголовный кодекс Российской Федерации</h2>
+            <div class="codex-container">
+                
+                <!-- Глава 1 -->
+                <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФМС РФ - Федеральная Миграционная Служба</title>
+    <style>
+        /* ... (предыдущие стили остаются без изменений) ... */
+
+        .codex {
+            background-color: #f5f5f5;
+            padding: 3rem 0;
+        }
+
+        .codex-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .chapter {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .chapter:last-child {
+            border-bottom: none;
+        }
+
+        .article {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .note {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .penalty {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- ... (предыдущий код остается без изменений до нового раздела) ... -->
+
+    <section id="codex" class="codex">
+        <div class="container">
+            <h2 class="section-title">Уголовный кодекс Российской Федерации</h2>
+            <div class="codex-container">
+                
+                <div class="chapter">
+                    <h3>Глава 1: Нападение и разбой</h3>
+                    
+                    <div class="article">
+                        <h4>1.1: Нападение с холодным оружием на гражданское лицо</h4>
+                        <p><span class="penalty">Наказание:</span> штраф 2.000 рублей.</p>
+                    </div>
+                    
+                    <div class="article">
+                        <h4>1.2: Нападение с холодным оружием на сотрудника правоохранительных органов</h4>
+                        <p><span class="penalty">Наказание:</span> штраф 2.500 рублей.</p>
+                    </div>
+                    
+                    <div class="article">
+                        <h4>1.3: Повторное нападение с холодным оружием</h4>
+                        <p><span class="penalty">Наказание:</span> лишение свободы или штраф 1.000 рублей потерпевшему и 4.000 рублей государству.</p>
+                    </div>
+                    
+                    <div class="article">
+                        <h4>1.4: Разбой с целью ограбления</h4>
+                        <p><span class="penalty">Наказание:</span> штраф 3.000 рублей; при других нарушениях — лишение свободы.</p>
+                    </div>
+                    
+                    <div class="article">
+                        <h4>1.5: Разбой с целью убийства, повлекший смерть</h4>
+                        <p><span class="penalty">Наказание:</span> лишение свободы до 5 лет.</p>
+                        <p class="note">Примечание: Разбой — вооружённое нападение с целью ограбления или убийства.</p>
+                    </div>
+                </div>
+
+                <div class="chapter">
+                    <h3>Глава 2: Вооружённое нападение</h3>
+                    
+                    <div class="article">
+                        <h4>2.1: Вооружённое нападение на гражданское лицо</h4>
+                        <p><span class="penalty">Наказание:</span> лишение свободы или залог 6.500 рублей.</p>
+                    </div>
+                    
+                    <div class="article">
+                        <h4>2.2: Вооружённое нападение на сотрудника правоохранительных органов</h4>
+                        <p><span class="penalty">Наказание:</span> лишение свободы или залог 7.000 рублей.</p>
+                    </div>
+                    
+                    <div class="article">
+                        <h4>2.3: Вооружённое нападение на двух и более лиц</h4>
+                        <p><span class="penalty">Наказание:</span> лишение свободы.</p>
+                    </div>
+                </div>
+
+                <!-- Аналогично добавьте остальные главы -->
+                <div class="chapter">
+                    <h3>Глава 3: Взятка</h3>
+                    <!-- Статьи 3.1-3.2 -->
+                </div>
+
+                <div class="chapter">
+                    <h3>Глава 4: Убийство</h3>
+                    <!-- Статьи 4.1-4.2 -->
+                </div>
+
+                <!-- Продолжите для глав 5-10 -->
+
+            </div>
+        </div>
+    </section>
+    <section id="rules" class="rules">
+        <div class="container">
+            <h2 class="section-title">Устав и правила ФМС РФ</h2>
+            <div class="rules-container">
+                <h3>Основные положения</h3>
+                <div class="rules-list">
+                    <h4>1. Общие принципы</h4>
+                    <ul>
+                        <li>ФМС РФ руководствуется Конституцией РФ, федеральными законами и указами Президента</li>
+                        <li>Деятельность службы направлена на обеспечение миграционного контроля</li>
+                        <li>Все сотрудники обязаны соблюдать служебную этику и законодательство</li>
+                    </ul>
+
+                    <h4>2. Основные задачи</h4>
+                    <ul>
+                        <li>Контроль за пребыванием иностранных граждан на территории РФ</li>
+                        <li>Оформление и выдача документов (визы, РВП, ВНЖ)</li>
+                        <li>Борьба с нелегальной миграцией</li>
+                        <li>Взаимодействие с другими правоохранительными органами</li>
+                    </ul>
+
+                    <h4>3. Полномочия сотрудников</h4>
+                    <ul>
+                        <li>Проверка документов у граждан и иностранцев</li>
+                        <li>Составление протоколов об административных правонарушениях</li>
+                        <li>Задержание лиц с просроченными документами</li>
+                        <li>Проведение рейдов совместно с МВД</li>
+                    </ul>
+
+                    <h4>4. Обязанности сотрудников</h4>
+                    <ul>
+                        <li>Соблюдать законность при выполнении служебных обязанностей</li>
+                        <li>Быть вежливыми и корректными с гражданами</li>
+                        <li>Не разглашать служебную информацию</li>
+                        <li>Повышать профессиональную квалификацию</li>
+                    </ul>
+
+                    <h4>5. Запрещённые действия</h4>
+                    <ul>
+                        <li>Применение силы без необходимости</li>
+                        <li>Грубое обращение с гражданами</li>
+                        <li>Проверка документов без оснований</li>
+                        <li>Принятие взяток и злоупотребление полномочиями</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обновите навигацию, добавив пункт -->
+    <nav>
+        <ul>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Деятельность</a></li>
+            <li><a href="#team">Состав</a></li>
+            <li><a href="#rules">Устав</a></li>
+            <li><a href="#codex">Уголовный кодекс</a></li> <!-- Новая ссылка -->
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <!-- ... (остальной код остается без изменений) ... -->
+</body>
+</html>
+                    <!-- Остальные статьи главы 2 -->
+                    
+                </div>
+
+                <!-- Добавьте остальные главы по аналогии -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Остальные разделы сайта -->
+    <section id="contact" class="contact">
+        <!-- ... (раздел "Контакты" из предыдущего кода) ... -->
+    </section>
+
+    <footer>
+        <!-- ... (футер из предыдущего кода) ... -->
+    </footer>
+    <a href="#codex" class="btn">Уголовный кодекс</a>
+</body>
+</html>
